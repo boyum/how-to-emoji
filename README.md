@@ -1,6 +1,8 @@
 # how-to-emoji
 
-> My splendiferous Nuxt.js project
+> emoji tutorial
+
+[Demo here](https://how-to-emoji-vrwavwtfyq.now.sh/)
 
 ## Build Setup
 
