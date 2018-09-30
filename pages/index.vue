@@ -1,7 +1,7 @@
 <template>
   <section class="container">
     <h1 class="title">
-      Hi! We're guessing that you're using {{ os.family }} {{ os.version }}!
+      Hi! We're guessing that you're using {{ os.family }} {{ os.version }}! 🎆
     </h1>
     <h2
       v-if="currentCombination.keys || currentCombination.alternative"
