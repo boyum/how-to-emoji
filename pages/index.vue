@@ -82,7 +82,7 @@ function getCombination(family, version) {
   family = family?.toLowerCase() ?? '';
   version = version?.toLowerCase() ?? '';
 
-  console.log({family, version})
+  console.log({family, version, combinations})
 
   return combinations.find(combination => {
     const isCorrectFamily = combination.osFamily?.toLowerCase() === family;
