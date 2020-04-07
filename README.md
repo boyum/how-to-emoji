@@ -2,7 +2,7 @@
 
 > emoji tutorial
 
-[Demo here](https://how-to-emoji-vrwavwtfyq.now.sh/)
+[Demo here](https://emoji.sindre.is)
 
 ## Build Setup
 
