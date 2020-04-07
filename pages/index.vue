@@ -99,6 +99,8 @@ export default {
     Logo
   },
   data() {
+    const currentCombination = getCombination(os.family, os.version);
+    
     return {
       os,
       product,
