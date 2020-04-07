@@ -98,7 +98,7 @@ export default {
   components: {
     Logo
   },
-  data: () => {
+  data() {
     return {
       os,
       product,
