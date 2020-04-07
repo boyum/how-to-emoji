@@ -79,34 +79,24 @@ const combinations = [
 const currentCombination = getCombination(os.family, os.version);
 
 function getCombination(family, version) {
-  let ret = {};
+  family = family?.toLowerCase() ?? '';
+  version = version?.toLowerCase() ?? '';
 
-  family = family || '';
-  version = version || '';
-
-  let isCorrectFamily;
-  let isCorrectVersion;
-
-  combinations.forEach(combination => {
-    isCorrectFamily = combination.osFamily &&
-      combination.osFamily.toLowerCase() === family.toLowerCase();
-    isCorrectVersion = combination.osVersion
-      ? combination.osVersion.toLowerCase() === version.toLowerCase()
+  return combinations.find(combination => {
+    const isCorrectFamily = combination.osFamily?.toLowerCase() === family;
+    const isCorrectVersion = combination.osVersion
+      ? combination.osVersion.toLowerCase() === version
       : true;
 
-    if (isCorrectFamily && isCorrectVersion) {
-      ret = combination;
-    }
-  });
-
-  return ret;
+    return isCorrectFamily && isCorrectVersion;
+  }) ?? {};
 }
 
 export default {
   components: {
     Logo
   },
-  data: () => {
+  data() {
     return {
       os,
       product,

@@ -66,6 +66,12 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-    }
+    },
+    html: {
+      minify: {
+        collapseWhitespace: true,
+        removeComments: true,
+      },
+    },
   }
 }
