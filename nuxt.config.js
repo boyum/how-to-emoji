@@ -2,7 +2,7 @@ const pkg = require('./package')
 
 module.exports = {
   mode: 'universal',
-
+  dev: true,
   /*
   ** Headers of the page
   */
