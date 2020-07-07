@@ -57,7 +57,7 @@ const combinations = [
     label: 'Windows 10',
     osFamily: 'Windows',
     osVersion: '10',
-    keys: ['⊞ Win', '¨']
+    keys: ['⊞ Win', '.']
   },
   {
     label: 'Android',
@@ -72,7 +72,7 @@ const combinations = [
   {
     label: 'macOS',
     osFamily: 'OS X',
-    keys: ['⌘ Cmd', 'Ctrl', 'Space']
+    keys: ['⌘ Cmd', '⌃ Ctrl', 'Space']
   }
 ];
 
