@@ -3,7 +3,8 @@ module.exports = function (api) {
 
   const presets = [ ];
   const plugins = [ 
-    '@babel/plugin-proposal-optional-chaining'
+    '@babel/plugin-proposal-optional-chaining',
+    '@babel/plugin-proposal-nullish-coalescing-operator',
   ];
 
   return {
