@@ -5,105 +5,115 @@
     </h1>
     <h2
       v-if="currentCombination.keys || currentCombination.alternative"
-      class="subtitle">
+      class="subtitle"
+    >
       This is how you can type emoji on {{ currentDevice }}:
     </h2>
     <div
       v-if="currentCombination.keys || currentCombination.alternative"
-      class="howto">
+      class="howto"
+    >
       <div
         v-if="currentCombination.keys"
-        class="keys">
-        <span 
+        class="keys"
+      >
+        <span
           v-for="(key, index) in currentCombination.keys"
-          :key="index">
+          :key="index"
+        >
           <span v-if="index > 0"> + </span><kbd>{{ key }}</kbd>
         </span>
       </div>
       <div
-        v-if="!currentCombination.keys && currentCombination.alternative"      
-        class="alternative">
+        v-if="!currentCombination.keys && currentCombination.alternative"
+        class="alternative"
+      >
         {{ currentCombination.alternative }}
       </div>
     </div>
     <h2
       v-if="!currentCombination.keys && !currentCombination.alternative"
-      class="subtitle">
-      We don't know how to type emojis on your device! Please help us on <a href="https://github.com/boyum/how-to-emoji">GitHub</a>
+      class="subtitle"
+    >
+      We don't know how to type emojis on your device! Please help us on
+      <a href="https://github.com/boyum/how-to-emoji">GitHub</a>
     </h2>
     <nav class="other-combinations">
-      <h2>Click to check other devices: </h2>
+      <h2>Click to check other devices:</h2>
       <ul>
-        <li 
-          v-for="(c, index) in combinations" 
-          :key="index">
-          <button 
-            type="button" 
-            @click="setCombination(index)">
+        <li
+          v-for="(c, index) in combinations"
+          :key="index"
+        >
+          <button
+            type="button"
+            @click="setCombination(index)"
+          >
             {{ c.label }}
           </button>
         </li>
-      </ul> 
+      </ul>
     </nav>
   </section>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue';
-import { os, product } from 'platform';
+import { os, product } from "platform";
 
 const combinations = [
   {
-    label: 'Windows 10',
-    osFamily: 'Windows',
-    osVersion: '10',
-    keys: ['⊞ Win', '.']
+    label: "Windows 10",
+    osFamily: "Windows",
+    osVersion: "10",
+    keys: ["⊞ Win", "."]
   },
   {
-    label: 'Android',
-    osFamily: 'Android',
-    alternative: 'Find the emoji icon next to the letters on your on-screen keyboard'
+    label: "Android",
+    osFamily: "Android",
+    alternative:
+      "Find the emoji icon next to the letters on your on-screen keyboard"
   },
   {
-    label: 'iOS',
-    osFamily: 'iOS',
-    alternative: 'Find the emoji icon next to the letters on your on-screen keyboard'
+    label: "iOS",
+    osFamily: "iOS",
+    alternative:
+      "Find the emoji icon next to the letters on your on-screen keyboard"
   },
   {
-    label: 'macOS',
-    osFamily: 'OS X',
-    keys: ['⌘ Cmd', '⌃ Ctrl', 'Space']
+    label: "macOS",
+    osFamily: "OS X",
+    keys: ["⌘ Cmd", "⌃ Ctrl", "Space"]
   }
 ];
 
 const currentCombination = getCombination(os.family, os.version);
 
 function getCombination(family, version) {
-  family = family?.toLowerCase() ?? '';
-  version = version?.toLowerCase() ?? '';
+  family = family?.toLowerCase() ?? "";
+  version = version?.toLowerCase() ?? "";
 
-  return combinations.find(combination => {
-    const isCorrectFamily = combination.osFamily?.toLowerCase() === family;
-    const isCorrectVersion = combination.osVersion
-      ? combination.osVersion.toLowerCase() === version
-      : true;
+  return (
+    combinations.find(combination => {
+      const isCorrectFamily = combination.osFamily?.toLowerCase() === family;
+      const isCorrectVersion = combination.osVersion
+        ? combination.osVersion.toLowerCase() === version
+        : true;
 
-    return isCorrectFamily && isCorrectVersion;
-  }) ?? {};
+      return isCorrectFamily && isCorrectVersion;
+    }) ?? {}
+  );
 }
 
 export default {
-  components: {
-    Logo
-  },
+  components: {},
   data() {
     return {
       os,
       product,
       currentCombination,
       combination: currentCombination,
-      combinations, 
-      currentDevice: 'your device'
+      combinations,
+      currentDevice: "your device"
     };
   },
   methods: {
@@ -131,8 +141,8 @@ export default {
 .title {
   color: #35495e;
   display: block;
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 3.5rem;
   font-weight: 300;
   letter-spacing: 1px;
@@ -189,14 +199,14 @@ kbd {
   display: inline-block;
   font-family: inherit;
   font-size: 1rem;
-  padding: .3em;
+  padding: 0.3em;
 }
 
 .other-combinations li {
-  margin-bottom: .5em;
+  margin-bottom: 0.5em;
 }
 
 .other-combinations li + li {
-  margin-left: .5em;
+  margin-left: 0.5em;
 }
 </style>
