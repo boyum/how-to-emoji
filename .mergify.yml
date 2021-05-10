@@ -4,4 +4,4 @@ pull_request_rules:
       - author~=(depfu\[bot\])|(dependabot\[bot\])
     actions:
       merge:
-        method: merge
+        method: squash
