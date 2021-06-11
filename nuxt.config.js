@@ -5,6 +5,9 @@ module.exports = {
   ** Headers of the page
   */
   head: {
+    htmlAttrs: {
+      lang: 'en'
+    },
     title: 'How to emoji - Learn how to use ✨emoji✨ on your device 🤩',
     meta: [
       { charset: 'utf-8' },
