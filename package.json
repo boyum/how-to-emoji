@@ -6,10 +6,8 @@
   "private": true,
   "scripts": {
     "dev": "nuxt",
-    "build": "npm run generate",
+    "build": "nuxt generate",
     "start": "nuxt",
-    "build-nuxt": "nuxt build",
-    "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint"
   },
@@ -17,7 +15,6 @@
     "@nuxtjs/axios": "^5.13.6",
     "cross-env": "^7.0.3",
     "nuxt": "^2.15.8",
-    "nuxt-cli": "^0.0.1",
     "platform": "^1.3.6"
   },
   "devDependencies": {
