@@ -23,6 +23,6 @@
     "@babel/plugin-proposal-optional-chaining": "^7.17.12",
     "eslint": "^8.18.0",
     "eslint-plugin-vue": "^9.1.1",
-    "nodemon": "^2.0.16"
+    "nodemon": "^2.0.18"
   }
 }
