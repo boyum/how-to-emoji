@@ -1,3 +1,5 @@
+<!-- eslint-disable vue/multi-word-component-names -->
+
 <template>
   <section class="container">
     <h1 class="title">
@@ -58,32 +60,34 @@
 </template>
 
 <script>
-import { os, product } from "platform";
+import platform from "platform";
+
+const { os, product } = platform;
 
 const combinations = [
   {
     label: "Windows 10",
     osFamily: "Windows",
     osVersion: "10",
-    keys: ["⊞ Win", "."]
+    keys: ["⊞ Win", "."],
   },
   {
     label: "Android",
     osFamily: "Android",
     alternative:
-      "Find the emoji icon next to the letters on your on-screen keyboard"
+      "Find the emoji icon next to the letters on your on-screen keyboard",
   },
   {
     label: "iOS",
     osFamily: "iOS",
     alternative:
-      "Find the emoji icon next to the letters on your on-screen keyboard"
+      "Find the emoji icon next to the letters on your on-screen keyboard",
   },
   {
     label: "macOS",
     osFamily: "OS X",
-    keys: ["⌘ Cmd", "⌃ Ctrl", "Space"]
-  }
+    keys: ["⌘ Cmd", "⌃ Ctrl", "Space"],
+  },
 ];
 
 const currentCombination = getCombination(os.family, os.version);
@@ -93,7 +97,7 @@ function getCombination(family, version) {
   version = version?.toLowerCase() ?? "";
 
   return (
-    combinations.find(combination => {
+    combinations.find((combination) => {
       const isCorrectFamily = combination.osFamily?.toLowerCase() === family;
       const isCorrectVersion = combination.osVersion
         ? combination.osVersion.toLowerCase() === version
@@ -113,15 +117,15 @@ export default {
       currentCombination,
       combination: currentCombination,
       combinations,
-      currentDevice: "your device"
+      currentDevice: "your device",
     };
   },
   methods: {
     setCombination(index) {
       this.currentCombination = combinations[index];
       this.currentDevice = combinations[index].label;
-    }
-  }
+    },
+  },
 };
 </script>
 
