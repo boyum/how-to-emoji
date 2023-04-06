@@ -60,7 +60,9 @@
 </template>
 
 <script>
-import { os, product } from "platform";
+import platform from "platform";
+
+const { os, product } = platform;
 
 const combinations = [
   {
