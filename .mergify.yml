@@ -1,7 +1,0 @@
-pull_request_rules:
-  - name: Automatic merge for Depfu patch pull requests
-    conditions:
-      - author~=(depfu\[bot\])|(dependabot\[bot\])
-    actions:
-      merge:
-        method: squash
