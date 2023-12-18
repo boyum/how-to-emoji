@@ -1,62 +1,53 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 
 <template>
-  <section class="container">
-    <h1 class="title">
-      Hi! We're guessing that you're using {{ os.family }} {{ os.version }}! 🎆
-    </h1>
-    <h2
-      v-if="currentCombination.keys || currentCombination.alternative"
-      class="subtitle"
-    >
-      This is how you can type emoji on {{ currentDevice }}:
-    </h2>
-    <div
-      v-if="currentCombination.keys || currentCombination.alternative"
-      class="howto"
-    >
-      <div
-        v-if="currentCombination.keys"
-        class="keys"
+  <ClientOnly>
+    <section class="container">
+      <h1 class="title">
+        Hi! We're guessing that you're using {{ os.family }} {{ os.version }}!
+        🎆
+      </h1>
+      <h2
+        v-if="currentCombination.keys || currentCombination.alternative"
+        class="subtitle"
       >
-        <span
-          v-for="(key, index) in currentCombination.keys"
-          :key="index"
-        >
-          <span v-if="index > 0"> + </span><kbd>{{ key }}</kbd>
-        </span>
-      </div>
+        This is how you can type emoji on {{ currentDevice }}:
+      </h2>
       <div
-        v-if="!currentCombination.keys && currentCombination.alternative"
-        class="alternative"
+        v-if="currentCombination.keys || currentCombination.alternative"
+        class="howto"
       >
-        {{ currentCombination.alternative }}
-      </div>
-    </div>
-    <h2
-      v-if="!currentCombination.keys && !currentCombination.alternative"
-      class="subtitle"
-    >
-      We don't know how to type emojis on your device! Please help us on
-      <a href="https://github.com/boyum/how-to-emoji">GitHub</a>
-    </h2>
-    <nav class="other-combinations">
-      <h2>Click to check other devices:</h2>
-      <ul>
-        <li
-          v-for="(c, index) in combinations"
-          :key="index"
+        <div v-if="currentCombination.keys" class="keys">
+          <span v-for="(key, index) in currentCombination.keys" :key="index">
+            <span v-if="index > 0"> + </span><kbd>{{ key }}</kbd>
+          </span>
+        </div>
+        <div
+          v-if="!currentCombination.keys && currentCombination.alternative"
+          class="alternative"
         >
-          <button
-            type="button"
-            @click="setCombination(index)"
-          >
-            {{ c.label }}
-          </button>
-        </li>
-      </ul>
-    </nav>
-  </section>
+          {{ currentCombination.alternative }}
+        </div>
+      </div>
+      <h2
+        v-if="!currentCombination.keys && !currentCombination.alternative"
+        class="subtitle"
+      >
+        We don't know how to type emojis on your device! Please help us on
+        <a href="https://github.com/boyum/how-to-emoji">GitHub</a>
+      </h2>
+      <nav class="other-combinations">
+        <h2>Click to check other devices:</h2>
+        <ul>
+          <li v-for="(c, index) in combinations" :key="index">
+            <button type="button" @click="setCombination(index)">
+              {{ c.label }}
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </section>
+  </ClientOnly>
 </template>
 
 <script>
@@ -97,7 +88,7 @@ function getCombination(family, version) {
   version = version?.toLowerCase() ?? "";
 
   return (
-    combinations.find((combination) => {
+    combinations.find(combination => {
       const isCorrectFamily = combination.osFamily?.toLowerCase() === family;
       const isCorrectVersion = combination.osVersion
         ? combination.osVersion.toLowerCase() === version
@@ -145,8 +136,16 @@ export default {
 .title {
   color: #35495e;
   display: block;
-  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family:
+    "Quicksand",
+    "Source Sans Pro",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
   font-size: 3.5rem;
   font-weight: 300;
   letter-spacing: 1px;
