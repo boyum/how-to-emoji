@@ -1,24 +1,7 @@
-# how-to-emoji
+# How to Emoji
 
-> emoji tutorial
+Did you know that most devices today support 😍 emoji 😍, and even provide a way to type them?
+This site is a guide to using emoji on your device ✨
+It's built with [Nuxt.js](https://nuxtjs.org).
 
-[Demo here](https://emoji.sindre.is)
-
-## Build Setup
-
-``` bash
-# install dependencies
-$ yarn install
-
-# serve with hot reload at localhost:3000
-$ yarn run dev
-
-# build for production and launch server
-$ yarn run build
-$ yarn start
-
-# generate static project
-$ yarn run generate
-```
-
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+[Check it out!](https://emoji.sindre.is)
