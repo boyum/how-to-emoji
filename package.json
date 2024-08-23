@@ -19,7 +19,7 @@
   },
   "prettier": "prettier-config",
   "dependencies": {
-    "nuxt": "^3.12.4",
+    "nuxt": "^3.13.0",
     "platform": "^1.3.6"
   },
   "devDependencies": {
